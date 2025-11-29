@@ -1,16 +1,35 @@
-# techsaint_mini_ecom_app
+# Flutter E-Commerce App
 
-A new Flutter project.
+A modern, responsive e-commerce mobile application built with Flutter that demonstrates product listing, shopping cart functionality, and user preferences management.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+🛍️ **Product Management**
+- Browse products from FakeStore API
+- Add new products to the catalog
+- Remove products from the catalog
+- Search and filter products
+- Sort by price, rating, and name
 
-A few resources to get you started if this is your first Flutter project:
+🛒 **Shopping Cart**
+- Add/remove items from cart
+- Persistent cart storage using Shared Preferences
+- Quantity management
+- Total price calculation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🎨 **User Experience**
+- Dark/Light mode toggle
+- Responsive design for mobile and tablet
+- Smooth animations and transitions
+- 3-second splash screen with logo animation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stack
+
+- **Framework**: Flutter
+- **State Management**: Provider
+- **Architecture**: MVC (Model-View-Controller)
+- **Local Storage**: Shared Preferences
+- **HTTP Client**: http package
+- **API**: FakeStore API
+
+## App Architecture

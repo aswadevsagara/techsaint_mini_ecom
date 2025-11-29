@@ -16,6 +16,7 @@ class ProductCard extends StatelessWidget {
 
     return Card(
       elevation: 2,
+      color: const Color.fromARGB(255, 237, 237, 237),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,16 +28,19 @@ class ProductCard extends StatelessWidget {
                     topLeft: Radius.circular(8),
                     topRight: Radius.circular(8),
                   ),
-                  child: Image.network(
-                    product.image,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[200],
-                        child: const Icon(Icons.image, color: Colors.grey),
-                      );
-                    },
+                  child: Padding(
+                    padding: const EdgeInsets.all(9.0),
+                    child: Image.network(
+                      product.image,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[200],
+                          child: const Icon(Icons.image, color: Colors.grey),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Positioned(

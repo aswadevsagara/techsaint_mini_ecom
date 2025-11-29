@@ -27,12 +27,24 @@ class _HomeScreenState extends State<HomeScreen> {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('E-Commerce Store'),
+        title: const Text(
+          'E-Commerce Store',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
+        centerTitle: true,
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
+        elevation: 4,
+        shadowColor: Colors.green.withOpacity(0.5),
         actions: [
           IconButton(
-            icon: Icon(themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode),
+            icon: Icon(
+              themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+              size: 24,
+            ),
             onPressed: () {
               themeProvider.toggleTheme();
             },
@@ -46,7 +58,47 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Consumer<ProductProvider>(
               builder: (context, productProvider, child) {
                 if (productProvider.isLoading) {
-                  return const Center(child: CircularProgressIndicator());
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Loading Products...',
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+                
+                if (productProvider.products.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.inventory_2_outlined,
+                          size: 80,
+                          color: Colors.grey[400],
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'No products found',
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 }
                 
                 return ProductGrid(products: productProvider.products);
